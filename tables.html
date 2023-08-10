@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Forms and Tables - Forms</title>
+  </head>
+  <style>
+    form {
+      display: flex;
+      flex-direction: column;
+      max-width: 600px;
+      margin: auto;
+    }
+  </style>
+  <script defer>
+    const firstForm = document.querySelector("#form-one");
+    firstForm.addEventListener("submit", (event) => {
+      event.preventDefault();
+      console.log(event);
+    });
+  </script>
+  <body>
+    <header>
+      <h1>Forms and Tables</h1>
+      <nav>
+        <ul>
+          <li><a href="/index.html">Forms</a></li>
+          <li><a href="/tables.html">Tables</a></li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <section>
+        <h2>Forms</h2>
+        <article>
+          <h3>First Form</h3>
+          <!-- Form Start -->
+          <label for="form-name">Name:</label>
+          <form id="form-one">
+            <input
+              type="text"
+              name="name"
+              id="form-name"
+              placeholder="Enter Your Name"
+            />
+            <label for="form-email">Email:</label>
+            <input
+              type="email"
+              name="email"
+              id="form-email"
+              placeholder="Enter Your email"
+            />
+            <label for="form-password">Password:</label>
+            <input
+              type="password"
+              name="password"
+              id="form-password"
+              placeholder="Enter Your password"
+            />
+            <button type="submit">submit</button>
+          </form>
+          <!-- Form End -->
+        </article>
+      </section>
+    </main>
+  </body>
+</html>
