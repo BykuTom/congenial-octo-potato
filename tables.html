@@ -17,7 +17,38 @@
     const firstForm = document.querySelector("#form-one");
     firstForm.addEventListener("submit", (event) => {
       event.preventDefault();
-      console.log(event);
+      const users = [];
+      const createRow = (user) => {
+        const row = document.createElement("tr");
+        const nameColumn = document.createElement("td");
+        const emailColumn = document.createElement("td");
+        const passwordColumn = document.createElement("td");
+
+        nameColumn.textContent = user.name;
+        emailColumn.textContent = user.email;
+        passwordColumn.textContent = user.password;
+
+        row.appendChild(nameColumn);
+        row.appendChild(emailColumn);
+        row.appendChild(passwordColumn);
+
+        return row;
+      };
+      const renderUsers = (tableID) => {
+        const table = document.querySelector(`${tableID} tbody`);
+        const rows = users.map(createRow);
+
+        rows.forEach((row) => {
+          table.appendChild(row);
+        });
+      };
+      const { name, email, password } = event.target.elements;
+      users.push({
+        name: name.value,
+        email: email.value,
+        password: password.value,
+      });
+      renderUsers("#usersTable");
     });
   </script>
   <body>
@@ -60,7 +91,24 @@
             />
             <button type="submit">submit</button>
           </form>
+
           <!-- Form End -->
+          <table id="table-users">
+            <thead>
+              <tr>
+                <th>Names</th>
+                <th>Emails</th>
+                <th>Passwords</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Name</td>
+                <td>Email</td>
+                <td>Password</td>
+              </tr>
+            </tbody>
+          </table>
         </article>
       </section>
     </main>
